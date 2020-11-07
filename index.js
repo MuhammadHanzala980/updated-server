@@ -7,6 +7,7 @@ const saller = require('./Routes/saller');
 const admin = require('./Routes/admin')
 const reviews = require('./Routes/reviews')
 var connection = require('./Connection/connection');
+const mailtoadmin = require('./Routes/mailtoadmin')
 const app = express();
 const cors = require('cors')
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,6 +22,7 @@ app.use('/app/auth', authentication)
 app.use('/app/listing', saller)
 app.use('/app/admin', admin)
 app.use('/app/reviews', reviews)
+app.use('/app/mail', mailtoadmin)
 
 app.set('port', process.env.PORT || 9000);
 var server = app.listen(app.get('port'), function () {
